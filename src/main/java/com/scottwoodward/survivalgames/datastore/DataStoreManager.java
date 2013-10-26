@@ -30,6 +30,8 @@ public class DataStoreManager {
 	private DataStoreManager(){
 		String createPlayers = "CREATE TABLE IF NOT EXISTS PLAYERS (USERNAME VARCHAR(20) NOT NULL PRIMARY KEY, POINTS INT(5), TOKENS INT(5));";
 		String createSpawns = "CREATE TABLE IF NOT EXISTS SPAWNS (ID INT(5) NOT NULL AUTO_INCREMENT PRIMARY KEY, WORLD VARCHAR(30), X FLOAT, Y FLOAT, Z FLOAT, PITCH FLOAT, YAW FLOAT);";
+		String createMemberships = "CREATE TABLE IF NOT EXISTS noodles_memberships (NAME VARCHAR(20) NOT NULL, COLOR VARCHAR(4));";
+
 		try{
 			File file = new File(SurvivalGames.getInstance().getDataFolder(), "config.yml");
 			YamlConfiguration config = new YamlConfiguration();
@@ -46,6 +48,7 @@ public class DataStoreManager {
 			Statement statement = con.createStatement();
 			statement.execute(createSpawns);
 			statement.execute(createPlayers);
+			statement.execute(createMemberships);
 			con.close();
 			SurvivalGames.getInstance().getLogger().log(Level.INFO, "Database initialized");
 
@@ -107,7 +110,7 @@ public class DataStoreManager {
 		}
 		return 0;
 	}
-	
+
 	public int getPlayerPasses(String playerName){
 		if(isFirstTimePlayer(playerName)){
 			return 0;
@@ -146,7 +149,7 @@ public class DataStoreManager {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void setPlayerPasses(String playerName, int newPoints){
 		try{
 			Connection con = getConnection();
@@ -270,5 +273,22 @@ public class DataStoreManager {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public String loadNameColor(String name) {
+		try{
+			Connection con = getConnection();
+			String query = "SELECT COLOR FROM noodles_memberships WHERE NAME=?";
+			PreparedStatement statement = con.prepareStatement(query);
+			statement.setString(1, name);
+			ResultSet rs = statement.executeQuery();
+			while(rs.next()){
+				return rs.getString("COLOR");
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return "&f";
+
 	}
 }

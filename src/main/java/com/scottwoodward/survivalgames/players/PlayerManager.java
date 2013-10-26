@@ -13,6 +13,7 @@ public class PlayerManager {
 	private Map<String, Integer> points;
 	private Map<String, Integer> passes;
 	private Map<String, Integer> maps;
+	private Map<String, String> nameColors;
 
 
 	private PlayerManager(){
@@ -20,6 +21,7 @@ public class PlayerManager {
 		points = new HashMap<String, Integer>();
 		passes = new HashMap<String, Integer>();
 		maps = new HashMap<String, Integer>();
+		nameColors = new HashMap<String, String>();
 	}
 
 	public static PlayerManager getInstance(){
@@ -113,5 +115,17 @@ public class PlayerManager {
 	
 	public boolean hasMapSelected(String name){
 		return maps.containsKey(name);
+	}
+	
+	public void loadNameColor(String name){
+		nameColors.put(name, DataStoreManager.getInstance().loadNameColor(name));
+	}
+	
+	public void unloadNameColor(String name){
+		nameColors.remove(name);
+	}
+
+	public String getColor(String name) {
+		return nameColors.get(name);
 	}
 }

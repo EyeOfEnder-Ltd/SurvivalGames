@@ -39,6 +39,7 @@ public class PlayerJoinListener implements Listener {
 		event.setJoinMessage("");
 		PlayerManager.getInstance().setPoints(player.getName(), DataStoreManager.getInstance().getPlayerPoints(player.getName()));
 		PlayerManager.getInstance().setPasses(player.getName(), DataStoreManager.getInstance().getPlayerPasses(player.getName()));
+		PlayerManager.getInstance().loadNameColor(player.getName());
 		
 	}
 }

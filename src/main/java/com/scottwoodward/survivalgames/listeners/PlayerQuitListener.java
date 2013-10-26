@@ -28,5 +28,6 @@ public class PlayerQuitListener implements Listener {
 		PlayerManager.getInstance().removePoints(player.getName());
 		PlayerManager.getInstance().unsetPlayerMap(player.getName());
 		PlayerManager.getInstance().removePasses(player.getName());
+		PlayerManager.getInstance().unloadNameColor(player.getName());
 	}
 }

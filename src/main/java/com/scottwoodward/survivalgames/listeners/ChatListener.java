@@ -32,12 +32,12 @@ public class ChatListener implements Listener {
 					Player other = Bukkit.getPlayerExact(name);
 					if(other != null){
 						if(game.getPhase() != Phase.PREGAME){
-							log = "[" + ChatColor.GREEN + PlayerManager.getInstance().getPoints(player.getName()) + ChatColor.WHITE + "] " + player.getName() + ": " + event.getMessage();
+							log = "[" + ChatColor.GREEN + PlayerManager.getInstance().getPoints(player.getName()) + ChatColor.WHITE + "] " + PlayerManager.getInstance().getColor(player.getName()) + player.getName() + ChatColor.WHITE + ": " + event.getMessage();
 
 						}else{
-							log = "[" + ChatColor.GREEN + PlayerManager.getInstance().getPoints(player.getName()) + ChatColor.WHITE + "] " + player.getName() + ": " + event.getMessage();
+							log = "[" + ChatColor.GREEN + PlayerManager.getInstance().getPoints(player.getName()) + ChatColor.WHITE + "] " + PlayerManager.getInstance().getColor(player.getName()) + player.getName() + ChatColor.WHITE + ": " + event.getMessage();
 						}
-						other.sendMessage(log);
+						other.sendMessage(ChatColor.translateAlternateColorCodes('&', log));
 					}
 				}
 			}else{
@@ -45,22 +45,22 @@ public class ChatListener implements Listener {
 					Player other = Bukkit.getPlayerExact(name);
 					if(other != null){
 						if(game.getPhase() != Phase.PREGAME){
-							log = "[" + ChatColor.GREEN + PlayerManager.getInstance().getPoints(player.getName()) + ChatColor.WHITE + "] " + player.getName() + ": " + event.getMessage();
+							log = "[" + ChatColor.GREEN + PlayerManager.getInstance().getPoints(player.getName()) + ChatColor.WHITE + "] " + PlayerManager.getInstance().getColor(player.getName()) + player.getName() + ChatColor.WHITE + ": " + event.getMessage();
 
 						}else{
-							log = "[" + ChatColor.GREEN + PlayerManager.getInstance().getPoints(player.getName()) + ChatColor.WHITE + "] " + player.getName() + ": " + event.getMessage();
+							log = "[" + ChatColor.GREEN + PlayerManager.getInstance().getPoints(player.getName()) + ChatColor.WHITE + "] " + PlayerManager.getInstance().getColor(player.getName()) + player.getName() + ChatColor.WHITE + ": " + event.getMessage();
 						}
-						other.sendMessage(log);
+						other.sendMessage(ChatColor.translateAlternateColorCodes('&', log));
 					}
 				}
 			}
 		}else{
 			World world = Bukkit.getWorld(WorldManager.getInstance().getHubworld());
 			for(Player other : world.getPlayers()){
-				log = "[" + ChatColor.GREEN + PlayerManager.getInstance().getPoints(player.getName()) + ChatColor.WHITE + "] " + player.getName() + ": " + event.getMessage();
-				other.sendMessage(log);
+				log = "[" + ChatColor.GREEN + PlayerManager.getInstance().getPoints(player.getName()) + ChatColor.WHITE + "] " + PlayerManager.getInstance().getColor(player.getName()) + player.getName() + ChatColor.WHITE + ": " + event.getMessage();
+				other.sendMessage(ChatColor.translateAlternateColorCodes('&', log));
 			}
 		}
-		SurvivalGames.getInstance().getLogger().log(Level.INFO, log);
+		SurvivalGames.getInstance().getLogger().log(Level.INFO, ChatColor.translateAlternateColorCodes('&', log));
 	}
 }
