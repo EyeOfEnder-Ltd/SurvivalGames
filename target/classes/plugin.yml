@@ -1,0 +1,47 @@
+name: Survival Games
+version: 1.0.0
+main: com.scottwoodward.survivalgames.SurvivalGames
+
+commands:
+  bounty:
+    description: Places a bounty on an active player
+    usage: /bounty <player name> <amount>
+  bet:
+    description: Places a bet on an active player
+    usage: /bet <player name> <amount>
+  sponsor:
+    description: Calls for a sponsorship package
+    usage: /sponsor
+  setpodium:
+    description: Sets a podium for spawning players
+    usage: /setpodium <world name>
+    permission: survivalgames.staff
+  init:
+    description: Starts the games
+    usage: /init
+    permission: survivalgames.staff
+  points:
+    description: Checks a players points
+    usage: /points <playername>
+  setworldspawn:
+    description: Sets the world's spawn point
+    usage: /setworldspawn
+    permssion: survivalgames.staff
+  worldtp:
+    description: Teleports to another world
+    usage: /worldtp <World Name>
+    permssion: survivalgames.staff
+  resurrect:
+    description: Spends a resurrection pass to respawn in a game
+    usage: /resurrect
+  addpass:
+    description: Adds a resurrection token to a player
+    usage: /addpass <Player Name>
+    permission: survivalgames.staff
+  fstart:
+    description: Forces the current game to start
+    usage: /fstart
+    
+permissions:
+  survivalgames.staff:
+    default: op

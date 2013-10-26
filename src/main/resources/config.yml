@@ -1,0 +1,99 @@
+# The world players are placed when they aren't in a game lobby, or when they first join.
+HubWorld: Hub
+
+# The world to copy per game instance to use as a pregame lobby
+LobbyWorld: Lobby
+
+# The world to copy per game instance for use during the deathmatch
+DeathmatchWorld: DeathMatch
+
+# List of all worlds games can take place one
+GameWorlds: 
+ - Desert_Oasis
+ - The_Great_Unknown
+ - Avast_Ye_Mateys
+ 
+# How many instance to run
+NumberOfGames: 3
+
+BreakableBlocks:
+ - 106
+ - 39
+ - 40
+ 
+RandomDeathMessages:
+ - PLAYER was beat down by KILLER.
+ - PLAYER was sliced up by KILLER.
+ - PLAYER was destroyed by KILLER.
+ - PLAYER was murdered by KILLER.
+
+# Should server start games automatically after boot
+AutoInitialize: false
+
+# How many players remaining required to start a death match.
+PlayersRemainingForDeathMatch: 10
+
+# How many minutes until a death match is forced.
+TotalTimeUntilDeathMatch: 10
+
+# How many chests should be air dropped in per game (1/2 at start, 1/2 over the rest of the game)
+ChestPerMap: 10
+
+# How many kills a player needs to earn a supply crate
+KillsForCarePackage: 8
+
+# How many seconds the players stand on the podiums for before a game starts
+SecondsBeforeGameStarts
+
+# Item IDs for Tier One Chests
+TierOneItems:
+ - 260
+ - 327
+ - 351
+ - 372
+ - 374
+ - 296
+ - 271
+ - 275
+ - 268
+ - 333
+ - 280
+ - 318
+ - 288
+ - 266
+ - 359
+ - 298
+ - 299
+ - 300
+ - 301
+ - 302
+ - 303
+ - 304
+ - 305
+ - 346
+ - 261
+ - 262
+ - 332
+ - 344
+ 
+# Item IDs for Tier 2 Chests
+TierTwoItems:
+ - 281
+ - 282
+ - 306
+ - 307
+ - 308
+ - 309
+ - 272
+ - 265
+ - 264
+ - 320
+ - 364
+ - 366
+ 
+# Database Credentials
+DatabaseName:
+DatabaseURL: localhost
+DatabaseUser:
+DatabasePassword:
+DatabasePort: 3306
